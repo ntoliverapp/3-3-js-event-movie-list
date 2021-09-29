@@ -24,17 +24,26 @@ function addMovie(event) {
 
 function deleteMovie(event){
     event.target.parentNode.remove()
-    message.textContent = alert("movieDeleted")
+    message.textContent = "movieDeleted"
+    revealMessage()
 }
 
 function crossOffMovie(event) {
     event.target.classList.toggle("checked")
     if(event.target.classList.contains("checked")) {
-        message.textContent = alert("Movie Watched")
+        message.textContent = "Movie Watched"
     } else {
-        message.textContent = alert("Movie Added back")
+        message.textContent = "Movie Added back"
     }
 }
+
+function revealMessage(){
+    setTimeout(() => {
+        message.className = "hide"
+    }, 1000);
+}
+
+
 const nameForm = document.querySelector("form")
 nameForm.addEventListener("submit", addMovie)
 //1. what is it listening for (submit is an event listener JS knows), 2. run that addMovie function
