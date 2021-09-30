@@ -30,14 +30,16 @@ function deleteMovie(event){
 
 function crossOffMovie(event) {
     event.target.classList.toggle("checked")
-    if(event.target.classList.contains("checked")) {
-        message.textContent = "Movie Watched"
+    if(event.target.classList.contains("checked") === true) {
+        message.textContent = `${event.target.textContent} Watched`
     } else {
-        message.textContent = "Movie Added back"
+        message.textContent = `${event.target.textContent} Added back`
     }
+    revealMessage()
 }
 
 function revealMessage(){
+    message.classList.remove("hide")
     setTimeout(() => {
         message.className = "hide"
     }, 1000);
